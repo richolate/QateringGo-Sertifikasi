@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QateringGo Admin - Pratinjau Laporan</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="assets/img/qateringgo-logo.svg" alt="QateringGo" class="sidebar-logo">
+                <span>QateringGo</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="dashboard.html">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+                <a class="nav-link" href="#">
+                    <span class="nav-icon">💳</span>
+                    Verifikasi Pembayaran
+                </a>
+                <a class="nav-link" href="#">
+                    <span class="nav-icon">👥</span>
+                    Kelola Data Vendor &amp; Pelanggan
+                </a>
+                <a class="nav-link is-active" data-route="report" href="report.html">
+                    <span class="nav-icon">📄</span>
+                    Buat Laporan Pesanan
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="foot-title">Rangkuman Cepat</p>
+                <p class="foot-value" data-range-label>Rentang: 01 - 31 Okt 2025</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header with-actions">
+                <div>
+                    <p class="breadcrumb">Laporan &gt; Pesanan</p>
+                    <h1 data-range-title>Pratinjau Laporan: 01 Oktober 2025 - 31 Oktober 2025</h1>
+                    <p class="page-subtitle">Periksa detail transaksi sebelum mengunduh laporan akhir.</p>
+                </div>
+                <div class="header-actions">
+                    <div class="format-switch">
+                        <span>Format</span>
+                        <div class="switch-group">
+                            <button class="chip is-active" type="button">PDF</button>
+                            <button class="chip" type="button">Excel</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-icon" type="button" data-generate-report>
+                        <span class="icon">⬇️</span>
+                        Generate Report
+                    </button>
+                </div>
+            </header>
+
+            <section class="card">
+                <header class="card-header">
+                    <div>
+                        <h2>Ringkasan Rentang Tanggal</h2>
+                        <p>Total pesanan ditemukan: <strong>4</strong></p>
+                    </div>
+                    <a class="ghost-link" href="report.html">Ubah rentang tanggal</a>
+                </header>
+                <div class="table-wrapper">
+                    <table class="data-table" data-report-table>
+                        <thead>
+                            <tr>
+                                <th>ID Pesanan</th>
+                                <th>Tanggal</th>
+                                <th>Nama Vendor</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Menu Dipesan</th>
+                                <th>Jml (pax)</th>
+                                <th>Total Harga</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody data-report-rows>
+                            <tr>
+                                <td colspan="8" class="table-empty">Memuat data pesanan...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>

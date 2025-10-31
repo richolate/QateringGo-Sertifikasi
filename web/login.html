@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QateringGo Admin - Login</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="login-body">
+    <section class="login-page">
+        <div class="login-visual">
+            <div class="visual-bubble"></div>
+            <div class="visual-card">
+                <h2>Kemudahan Mengelola Pesanan</h2>
+                <p>Akses laporan data katering yang akurat dengan tampilan modern dan informatif.</p>
+            </div>
+            <div class="visual-stats">
+                <div class="stat">
+                    <span class="stat-label">Pesanan Oktober</span>
+                    <span class="stat-value">1.285</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Vendor Aktif</span>
+                    <span class="stat-value">86</span>
+                </div>
+            </div>
+        </div>
+        <div class="login-card">
+            <img class="brand-logo" src="assets/img/qateringgo-logo.svg" alt="Logo QateringGo">
+            <h1>Selamat Datang</h1>
+            <p class="login-subtitle">Masuk untuk memantau pesanan dan kelola laporan katering Anda.</p>
+            <div class="alert-inline hidden" data-alert="auth"></div>
+            <form class="login-form" action="#" method="post">
+                <label class="form-field">
+                    <span class="form-label">Login sebagai</span>
+                    <select name="role" class="form-control">
+                        <option value="customer">Pelanggan Individu</option>
+                        <option value="customer">Pelanggan Korporasi</option>
+                        <option value="vendor">Vendor</option>
+                        <option value="admin" selected>Admin</option>
+                        <option value="management">Manajemen</option>
+                    </select>
+                </label>
+                <label class="form-field">
+                    <span class="form-label">Username</span>
+                    <input type="text" name="username" placeholder="Masukkan username Anda" class="form-control" required>
+                </label>
+                <label class="form-field">
+                    <span class="form-label">Password</span>
+                    <input type="password" name="password" placeholder="Masukkan password Anda" class="form-control" required>
+                </label>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="form-note">Belum punya akun? <a class="link-inline" href="register.html">Daftar sekarang</a></p>
+            </form>
+        </div>
+    </section>
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>

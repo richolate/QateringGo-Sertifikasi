@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QateringGo - Daftar Akun</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="login-body">
+    <section class="login-page">
+        <div class="login-visual">
+            <div class="visual-bubble"></div>
+            <div class="visual-card">
+                <h2>Bangun Tim Andal</h2>
+                <p>Lengkapi data akun untuk mengakses insight katering QateringGo secara menyeluruh.</p>
+            </div>
+            <div class="visual-stats">
+                <div class="stat">
+                    <span class="stat-label">Akun Aktif</span>
+                    <span class="stat-value">124</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Vendor Tersambung</span>
+                    <span class="stat-value">86</span>
+                </div>
+            </div>
+        </div>
+        <div class="login-card">
+            <img class="brand-logo" src="assets/img/qateringgo-logo.svg" alt="Logo QateringGo">
+            <h1>Buat Akun</h1>
+            <p class="login-subtitle">Isi data berikut untuk mendaftarkan pengguna baru QateringGo.</p>
+            <div class="alert-inline hidden" data-alert="register"></div>
+            <form class="login-form register-form" action="#" method="post">
+                    <label class="form-field">
+                    <span class="form-label">Daftar sebagai</span>
+                    <select name="role" class="form-control">
+                        <option value="customer">Pelanggan Individu</option>
+                        <option value="customer">Pelanggan Korporasi</option>
+                        <option value="vendor">Vendor</option>
+                        <option value="admin" selected>Admin</option>
+                        <option value="management">Manajemen</option>
+                    </select>
+                </label>
+                <label class="form-field">
+                    <span class="form-label">Nama Lengkap</span>
+                    <input type="text" name="fullname" placeholder="Contoh: Anindita Gunawan" class="form-control" required>
+                </label>
+                <label class="form-field">
+                    <span class="form-label">Email Perusahaan</span>
+                    <input type="email" name="company-email" placeholder="nama@qateringgo.co.id" class="form-control" required>
+                </label>
+                <label class="form-field">
+                    <span class="form-label">Nomor Telepon</span>
+                    <input type="tel" name="phone" placeholder="08xxxxxxxxxx" class="form-control" required>
+                </label>
+                <div class="form-split">
+                    <label class="form-field">
+                        <span class="form-label">Username</span>
+                        <input type="text" name="username" placeholder="Buat username" class="form-control" required>
+                    </label>
+                    <label class="form-field">
+                        <span class="form-label">Password</span>
+                        <input type="password" name="password" placeholder="Buat password" class="form-control" required>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Daftarkan Akun</button>
+                <p class="form-note">Sudah punya akun? <a class="link-inline" href="login.html">Masuk di sini</a></p>
+            </form>
+        </div>
+    </section>
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>

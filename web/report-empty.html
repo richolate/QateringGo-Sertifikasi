@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QateringGo Admin - Laporan Kosong</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="assets/img/qateringgo-logo.svg" alt="QateringGo" class="sidebar-logo">
+                <span>QateringGo</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="dashboard.html">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+                <a class="nav-link" href="#">
+                    <span class="nav-icon">💳</span>
+                    Verifikasi Pembayaran
+                </a>
+                <a class="nav-link" href="#">
+                    <span class="nav-icon">👥</span>
+                    Kelola Data Vendor &amp; Pelanggan
+                </a>
+                <a class="nav-link is-active" data-route="report" href="report.html">
+                    <span class="nav-icon">📄</span>
+                    Buat Laporan Pesanan
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="foot-title">Rangkuman Cepat</p>
+                <p class="foot-value" data-range-label>Rentang: 01 - 31 Okt 2025</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <div>
+                    <p class="breadcrumb">Laporan &gt; Pesanan</p>
+                    <h1>Buat Laporan Pesanan</h1>
+                    <p class="page-subtitle">Tentukan rentang tanggal untuk melihat performa transaksi katering.</p>
+                </div>
+                <div class="profile-chip">
+                    <div class="avatar">AG</div>
+                    <div class="profile-meta">
+                        <span class="profile-name">Anindita G.</span>
+                        <span class="profile-role">Pelanggan Korporasi</span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="card">
+                <header class="card-header">
+                    <div>
+                        <h2>Pilih Rentang Tanggal</h2>
+                        <p>Rentang sebelumnya tidak memiliki transaksi, silakan coba periode lain.</p>
+                    </div>
+                </header>
+                <form class="date-range-form" action="report-empty.html" method="get" data-form-empty>
+                    <label class="form-field">
+                        <span class="form-label">Tanggal Mulai</span>
+                        <input class="form-control" type="date" name="start-date">
+                    </label>
+                    <label class="form-field">
+                        <span class="form-label">Tanggal Selesai</span>
+                        <input class="form-control" type="date" name="end-date">
+                    </label>
+                    <button type="submit" class="btn btn-primary">Tampilkan Pratinjau</button>
+                </form>
+            </section>
+
+            <section class="empty-state">
+                <div class="empty-illustration" aria-hidden="true">
+                    <span class="empty-icon">📄</span>
+                </div>
+                <h2 data-empty-title>Tidak Ada Data Ditemukan</h2>
+                <p data-empty-desc>Tidak ada transaksi yang ditemukan untuk rentang tanggal yang Anda pilih. Silakan coba rentang tanggal yang lain.</p>
+            </section>
+        </main>
+    </div>
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>

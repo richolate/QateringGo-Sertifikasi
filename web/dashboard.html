@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QateringGo Admin - Dashboard</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <img src="assets/img/qateringgo-logo.svg" alt="QateringGo" class="sidebar-logo">
+                <span>QateringGo</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a class="nav-link is-active" href="dashboard.html">
+                    <span class="nav-icon">📊</span>
+                    Dashboard
+                </a>
+                <a class="nav-link" href="#">
+                    <span class="nav-icon">💳</span>
+                    Verifikasi Pembayaran
+                </a>
+                <a class="nav-link" href="#">
+                    <span class="nav-icon">👥</span>
+                    Kelola Data Vendor &amp; Pelanggan
+                </a>
+                <a class="nav-link" data-route="report" href="report.html">
+                    <span class="nav-icon">📄</span>
+                    Buat Laporan Pesanan
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="foot-title">Rangkuman Cepat</p>
+                <p class="foot-value">52 pesanan baru minggu ini</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="page-header">
+                <div>
+                    <p class="breadcrumb">Beranda &gt; Ringkasan</p>
+                    <h1>Dashboard</h1>
+                    <p class="page-subtitle">Pantau performa utama marketplace katering QateringGo.</p>
+                </div>
+                <div class="profile-chip">
+                    <div class="avatar">AG</div>
+                    <div class="profile-meta">
+                        <span class="profile-name">Anindita G.</span>
+                        <span class="profile-role">Pelanggan Korporasi</span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="stat-grid">
+                <article class="stat-card">
+                    <p class="stat-card-label">Total Pesanan</p>
+                    <p class="stat-card-value">1.285</p>
+                    <p class="stat-card-delta is-positive">▲ 12% vs bulan lalu</p>
+                </article>
+                <article class="stat-card">
+                    <p class="stat-card-label">Nilai Transaksi</p>
+                    <p class="stat-card-value">Rp 185,4 Jt</p>
+                    <p class="stat-card-delta is-positive">▲ 8% vs bulan lalu</p>
+                </article>
+                <article class="stat-card">
+                    <p class="stat-card-label">Vendor Aktif</p>
+                    <p class="stat-card-value">86</p>
+                    <p class="stat-card-delta is-neutral">• stabil</p>
+                </article>
+                <article class="stat-card">
+                    <p class="stat-card-label">Tingkat Pembatalan</p>
+                    <p class="stat-card-value">4,3%</p>
+                    <p class="stat-card-delta is-negative">▼ 1,1% vs bulan lalu</p>
+                </article>
+            </section>
+
+            <section class="insight-grid">
+                <article class="insight-card">
+                    <header class="insight-header">
+                        <h2>Tren Pesanan Bulanan</h2>
+                        <span class="insight-subtitle">Evolusi jumlah pesanan sepanjang tahun berjalan.</span>
+                    </header>
+                    <div class="chart-placeholder">
+                        <span>Area visualisasi akan ditempatkan di sini.</span>
+                    </div>
+                </article>
+                <article class="insight-card">
+                    <header class="insight-header">
+                        <h2>Kontribusi Vendor Teratas</h2>
+                        <span class="insight-subtitle">Distribusi pesanan berdasarkan vendor teraktif.</span>
+                    </header>
+                    <div class="chart-placeholder">
+                        <span>Diagram donat vendor teratas.</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="lower-grid">
+                <article class="table-card">
+                    <header class="insight-header">
+                        <h2>Top Pesanan Korporat</h2>
+                        <span class="insight-subtitle">Daftar transaksi terbesar selama rentang terpilih.</span>
+                    </header>
+                    <div class="table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Perusahaan</th>
+                                    <th>Vendor</th>
+                                    <th>Menu</th>
+                                    <th>Pax</th>
+                                    <th>Nilai</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PT. Sinar Jaya</td>
+                                    <td>Berkah Katering</td>
+                                    <td>Nasi Tumpeng Komplit</td>
+                                    <td>150</td>
+                                    <td>Rp 7.500.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Wedding (Bpk. Rudi)</td>
+                                    <td>Dapur Bunda</td>
+                                    <td>Paket Wedding Gold</td>
+                                    <td>500</td>
+                                    <td>Rp 50.000.000</td>
+                                </tr>
+                                <tr>
+                                    <td>Kantor Kemenkeu</td>
+                                    <td>SnackEnak JKT</td>
+                                    <td>Snack Box Pagi</td>
+                                    <td>200</td>
+                                    <td>Rp 6.000.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+                <aside class="shortcut-card">
+                    <header class="insight-header">
+                        <h2>Shortcut Halaman</h2>
+                        <span class="insight-subtitle">Pilih tampilan yang ingin Anda akses.</span>
+                    </header>
+                    <div class="shortcut-list">
+                        <a class="shortcut-item" href="report.html">
+                            <span class="shortcut-icon">�</span>
+                            <div>
+                                <p class="shortcut-title">Buat Laporan</p>
+                                <p class="shortcut-desc">Masuk ke halaman laporan untuk pilih rentang tanggal.</p>
+                            </div>
+                        </a>
+                        <a class="shortcut-item" href="report-preview.html">
+                            <span class="shortcut-icon">�</span>
+                            <div>
+                                <p class="shortcut-title">Pratinjau Laporan</p>
+                                <p class="shortcut-desc">Lihat ringkasan data sebelum unduh.</p>
+                            </div>
+                        </a>
+                        <a class="shortcut-item" href="report-empty.html">
+                            <span class="shortcut-icon">�</span>
+                            <div>
+                                <p class="shortcut-title">Pratinjau Tanpa Data</p>
+                                <p class="shortcut-desc">Tampilkan pesan ketika tidak ada hasil.</p>
+                            </div>
+                        </a>
+                        <a class="shortcut-item" href="login.html">
+                            <span class="shortcut-icon">🔐</span>
+                            <div>
+                                <p class="shortcut-title">Kembali ke Login</p>
+                                <p class="shortcut-desc">Masuk sebagai peran lain.</p>
+                            </div>
+                        </a>
+                    </div>
+                </aside>
+            </section>
+        
+        </main>
+    </div>
+    <script src="assets/js/app.js" defer></script>
+</body>
+</html>
