@@ -1,43 +1,39 @@
 const REPORT_DATA = [
   {
-    id: "QGO-00123",
-    date: "2025-10-05",
-    vendor: "Berkah Katering",
-    customer: "PT. Sinar Jaya",
-    menu: "Nasi Tumpeng Komplit",
-    pax: 150,
-    total: 7500000,
-    status: "Selesai",
+    id_laporan: "LPR-2025-1001",
+    periode_awal: "2025-10-01",
+    periode_akhir: "2025-10-07",
+    tanggal_dibuat: "2025-10-08",
+    total_pesanan: 86,
+    total_pendapatan: 25800000,
+    dibuat_oleh: "Rani Pratama",
   },
   {
-    id: "QGO-00124",
-    date: "2025-10-07",
-    vendor: "Dapur Bunda",
-    customer: "Acara Wedding (Bpk. Rudi)",
-    menu: "Paket Wedding Gold",
-    pax: 500,
-    total: 50000000,
-    status: "Selesai",
+    id_laporan: "LPR-2025-1002",
+    periode_awal: "2025-10-08",
+    periode_akhir: "2025-10-15",
+    tanggal_dibuat: "2025-10-16",
+    total_pesanan: 134,
+    total_pendapatan: 48950000,
+    dibuat_oleh: "Rani Pratama",
   },
   {
-    id: "QGO-00125",
-    date: "2025-10-10",
-    vendor: "SnackEnak JKT",
-    customer: "Kantor Kemenkeu",
-    menu: "Snack Box Rapat (Pagi)",
-    pax: 200,
-    total: 6000000,
-    status: "Selesai",
+    id_laporan: "LPR-2025-1003",
+    periode_awal: "2025-10-16",
+    periode_akhir: "2025-10-23",
+    tanggal_dibuat: "2025-10-24",
+    total_pesanan: 102,
+    total_pendapatan: 31575000,
+    dibuat_oleh: "Fajar Nugraha",
   },
   {
-    id: "QGO-00126",
-    date: "2025-10-11",
-    vendor: "Berkah Katering",
-    customer: "PT. Sinar Jaya",
-    menu: "Nasi Box Harian",
-    pax: 100,
-    total: 3000000,
-    status: "Dibatalkan",
+    id_laporan: "LPR-2025-1004",
+    periode_awal: "2025-10-24",
+    periode_akhir: "2025-10-31",
+    tanggal_dibuat: "2025-10-31",
+    total_pesanan: 118,
+    total_pendapatan: 36200000,
+    dibuat_oleh: "Fajar Nugraha",
   },
 ];
 
@@ -128,9 +124,11 @@ function buildUrl(path, params) {
 }
 
 function filterReportData(startDate, endDate) {
-  return REPORT_DATA.filter((order) => {
-    const orderDate = parseISODate(order.date);
-    return orderDate >= startDate && orderDate <= endDate;
+  return REPORT_DATA.filter((report) => {
+    const periodStart = parseISODate(report.periode_awal);
+    const periodEnd = parseISODate(report.periode_akhir);
+    if (!periodStart || !periodEnd) return false;
+    return periodStart >= startDate && periodEnd <= endDate;
   });
 }
 
@@ -338,6 +336,10 @@ function handlePreviewPage() {
   }
 
   const filtered = filterReportData(startDate, endDate);
+  const reportCount = document.querySelector("[data-report-count]");
+  if (reportCount) {
+    reportCount.textContent = filtered.length.toString();
+  }
   renderReportTable(tableBody, filtered);
 
   const formatButtons = document.querySelectorAll(".format-switch .chip");
@@ -366,7 +368,7 @@ function renderReportTable(tbody, data) {
   if (!data.length) {
     const row = document.createElement("tr");
     const cell = document.createElement("td");
-    cell.colSpan = 8;
+    cell.colSpan = 7;
     cell.className = "table-empty";
     cell.textContent = "Tidak ada data untuk rentang tanggal ini.";
     row.appendChild(cell);
@@ -374,17 +376,16 @@ function renderReportTable(tbody, data) {
     return;
   }
 
-  data.forEach((order) => {
+  data.forEach((report) => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td>${order.id}</td>
-      <td>${formatDateNumeric(parseISODate(order.date))}</td>
-      <td>${order.vendor}</td>
-      <td>${order.customer}</td>
-      <td>${order.menu}</td>
-      <td>${order.pax}</td>
-      <td>${formatCurrencyID(order.total)}</td>
-      <td><span class="status-pill ${order.status === "Selesai" ? "is-success" : "is-warning"}">${order.status}</span></td>
+      <td>${report.id_laporan}</td>
+      <td>${formatDateNumeric(parseISODate(report.periode_awal))}</td>
+      <td>${formatDateNumeric(parseISODate(report.periode_akhir))}</td>
+      <td>${formatDateNumeric(parseISODate(report.tanggal_dibuat))}</td>
+      <td>${report.total_pesanan.toLocaleString("id-ID")}</td>
+      <td>${formatCurrencyID(report.total_pendapatan)}</td>
+      <td>${report.dibuat_oleh}</td>
     `;
     tbody.appendChild(row);
   });
@@ -397,16 +398,23 @@ function downloadReport(data, format, startDate, endDate) {
   }
   const filenameBase = `laporan-pesanan-${startDate.toISOString().split("T")[0]}-to-${endDate.toISOString().split("T")[0]}`;
 
-  const header = ["ID Pesanan", "Tanggal", "Vendor", "Pelanggan", "Menu", "Pax", "Total", "Status"];
-  const rows = data.map((order) => [
-    order.id,
-    formatDateNumeric(parseISODate(order.date)),
-    order.vendor,
-    order.customer,
-    order.menu,
-    order.pax,
-    formatCurrencyID(order.total),
-    order.status,
+  const header = [
+    "ID Laporan",
+    "Periode Awal",
+    "Periode Akhir",
+    "Tanggal Dibuat",
+    "Total Pesanan",
+    "Total Pendapatan",
+    "Dibuat Oleh",
+  ];
+  const rows = data.map((report) => [
+    report.id_laporan,
+    formatDateNumeric(parseISODate(report.periode_awal)),
+    formatDateNumeric(parseISODate(report.periode_akhir)),
+    formatDateNumeric(parseISODate(report.tanggal_dibuat)),
+    report.total_pesanan.toLocaleString("id-ID"),
+    formatCurrencyID(report.total_pendapatan),
+    report.dibuat_oleh,
   ]);
 
   if (format === "excel") {
@@ -419,7 +427,7 @@ function downloadReport(data, format, startDate, endDate) {
       `Rentang: ${formatDateLong(startDate)} - ${formatDateLong(endDate)}`,
       "",
       header.join(" | "),
-      "-".repeat(96),
+      "-".repeat(112),
       ...rows.map((cols) => cols.join(" | ")),
     ];
     const blob = new Blob([lines.join("\n")], { type: "application/pdf" });
